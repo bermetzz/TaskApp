@@ -6,19 +6,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/img"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/profile_image"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:layout_margin="30dp"
         android:src="@drawable/ic_launcher_background"
-        app:shapeAppearanceOverlay="@style/roundedImageView"/>
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"/>
 
     <EditText
+        android:autofillHints="name"
         android:id="@+id/et_profile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
 
 </LinearLayout>

@@ -9,4 +9,6 @@
     <string name="description">Description</string>
     <string name="save">Save</string>
     <string name="title_profile">Profile</string>
+    <string name="task">Task</string>
+    <string name="get_started">Get started!</string>
 </resources>
