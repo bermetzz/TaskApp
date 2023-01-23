@@ -7,9 +7,9 @@
     android:orientation="vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:id="@+id/profile_image"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:src="@drawable/ic_launcher_background"
@@ -17,11 +17,34 @@
         app:civ_border_color="@color/white"/>
 
     <EditText
+        android:id="@+id/et_name"
         android:autofillHints="name"
-        android:id="@+id/et_profile"
+        android:hint="@string/enter_your_name"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:layout_marginHorizontal="16dp"
         tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/et_age"
+        android:autofillHints="name"
+        android:hint="@string/enter_your_age"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginHorizontal="16dp"
+        tools:ignore="LabelFor" />
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_save"
+        android:textAllCaps="false"
+        android:textSize="28sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp" />
 
 </LinearLayout>
