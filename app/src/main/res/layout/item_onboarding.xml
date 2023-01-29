@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/image"
-        android:src="@color/black"
+        app:lottie_autoPlay="true"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_loop="true"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
 

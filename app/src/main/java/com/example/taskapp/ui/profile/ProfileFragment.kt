@@ -1,6 +1,5 @@
 package com.example.taskapp.ui.profile
 
-
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater

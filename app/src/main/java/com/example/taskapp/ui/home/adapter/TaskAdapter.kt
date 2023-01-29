@@ -42,7 +42,6 @@ class TaskAdapter(val onClick: (task: Task) -> Unit):
             }
             itemView.setOnLongClickListener{
                 onClick(task)
-                notifyItemChanged(adapterPosition)
                 true
             }
         }

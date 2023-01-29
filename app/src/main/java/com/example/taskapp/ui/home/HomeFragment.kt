@@ -13,6 +13,7 @@ import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentHomeBinding
 import com.example.taskapp.model.Task
 import com.example.taskapp.ui.home.adapter.TaskAdapter
+import com.example.taskapp.utils.showToast
 
 class HomeFragment : Fragment() {
 
@@ -30,13 +31,14 @@ class HomeFragment : Fragment() {
 
     private fun onClick(task: Task) {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){_, _ ->
+        builder.setPositiveButton("Yes") { _, _ ->
             App.db.taskDao().delete(task)
-            Toast.makeText(requireContext(), "Task is successfully removed", Toast.LENGTH_SHORT).show()
-            val tasks = App.db.taskDao().getAll()
-            adapter.addTasks(tasks)
+            showToast("Task is successfully removed")
+            setData()
         }
-        builder.setNegativeButton("No"){_, _ ->}
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.cancel()
+        }
         builder.setTitle("Delete task")
         builder.setMessage("Are you sure you want to delete the task?")
         builder.create().show()
@@ -55,12 +57,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tasks = App.db.taskDao().getAll()
-        adapter.addTasks(tasks)
+        setData()
         binding.recyclerView.adapter = adapter
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.taskFragment)
         }
+    }
+
+    private fun setData() {
+        val tasks = App.db.taskDao().getAll()
+        adapter.addTasks(tasks)
     }
 
     override fun onDestroyView() {
