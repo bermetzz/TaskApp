@@ -37,4 +37,21 @@
         android:name="com.example.taskapp.ui.onBoarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
+    <fragment
+        android:id="@+id/verificationFragment"
+        android:name="com.example.taskapp.ui.verification.VerificationFragment"
+        android:label="VerificationFragment">
+        <argument
+            android:name="verId"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.taskapp.ui.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_authFragment_to_verificationFragment"
+            app:destination="@id/verificationFragment" />
+    </fragment>
 </navigation>

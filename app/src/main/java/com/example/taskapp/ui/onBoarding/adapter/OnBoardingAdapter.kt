@@ -32,7 +32,7 @@ class OnBoardingAdapter(private val onClick: () -> Unit): Adapter<OnBoardingAdap
         fun bind(onBoard: OnBoard) {
             binding.tvTitle.text = onBoard.title
             binding.tvDescription.text = onBoard.description
-            binding.image.setAnimation(onBoard.image!!)
+            onBoard.image?.let { binding.image.setAnimation(it) }
             binding.btnStart.isVisible = adapterPosition == onBoardData.lastIndex
             binding.btnStart.setOnClickListener{
                 onClick()

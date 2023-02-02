@@ -14,4 +14,8 @@
     <string name="enter_your_name">Enter your name</string>
     <string name="_save">Save</string>
     <string name="enter_your_age">Enter your age</string>
+    <string name="phone">Enter your phone number</string>
+    <string name="sms">Send SMS</string>
+    <string name="confirm">Confirm</string>
+    <string name="code">Enter your code</string>
 </resources>
