@@ -1,6 +1,7 @@
 package com.example.taskapp
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.taskapp.data.Pref
 import com.example.taskapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,6 +49,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.taskFragment
             )
         )
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            Log.e("ololo", "onCreate: " + task.result )
+        }
         setupActionBarWithNavController(navController, appBarConfiguration)
         val bottomNavFragments = arrayListOf(
             R.id.navigation_home,
@@ -55,9 +61,10 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_profile
         )
         navView.setupWithNavController(navController)
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             navView.isVisible = bottomNavFragments.contains(destination.id)
-            if (destination.id == R.id.onBoardingFragment) supportActionBar?.hide()
+            if (destination.id == R.id.onBoardingFragment)
+                supportActionBar?.hide()
             else supportActionBar?.show()
         }
     }
